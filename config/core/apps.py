@@ -22,7 +22,8 @@ THIRD_APPS = [
 
 LOCAL_APPS = [
     'apps.accounts',
-    'apps.logs'
+    'apps.logs',
+    'apps.events'
 ]
 
 INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS + THIRD_APPS
