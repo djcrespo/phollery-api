@@ -1,13 +1,9 @@
 from __future__ import unicode_literals
-from django.db import models
-from uuid import uuid4
 from django.contrib.auth.models import AbstractUser, Group, Permission
 from django.db import models
-from django.utils.translation import gettext_lazy as _
 from .managers import UserManager
 
 ROL_CHOICES = (
-    ('client', 'Client'),
     ('employee', 'Employee'),
     ('guest', 'Guest')
 )
@@ -30,7 +26,7 @@ class User(AbstractUser):
     REQUIRED_FIELDS = ['email']
 
     # Rol dentro del sistema
-    role = models.CharField(max_length=100, choices=ROL_CHOICES, default='client')
+    role = models.CharField(max_length=100, choices=ROL_CHOICES, default='guest')
 
     objects = UserManager()
 
