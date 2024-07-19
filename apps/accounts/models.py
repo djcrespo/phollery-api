@@ -2,6 +2,7 @@ from __future__ import unicode_literals
 from django.contrib.auth.models import AbstractUser, Group, Permission
 from django.db import models
 from .managers import UserManager
+from apps.events.models import Event
 
 ROL_CHOICES = (
     ('employee', 'Employee'),
@@ -27,6 +28,9 @@ class User(AbstractUser):
 
     # Rol dentro del sistema
     role = models.CharField(max_length=100, choices=ROL_CHOICES, default='guest')
+
+    # Eventos
+    events = models.ManyToManyField(Event, related_name='events', blank=True)
 
     objects = UserManager()
 
